@@ -1,16 +1,14 @@
 import java.io.File;
 
 public class Ejercicio1 {
-    private File file = new File("c:'\'");
 
-    public void mostrarRaiz() {
+    public void mostrarRaiz(File file) {
         file = file.listRoots()[0];
-        int i = 0;
+        int i = 1;
         for (String f : file.list()) {
             System.out.println(i + ". " + f);
             i++;
         }
-
     }
 
 
