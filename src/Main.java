@@ -5,24 +5,28 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Ejercicio1 ej = new Ejercicio1();
+        File currentFile = File.listRoots()[0];
 
-        //Para Windows
-        File windows = new File("c:'\'");
-        //Para Linux
-        File linux = new File("/");
 
         int opcion;
+        System.out.println("MENU");
+        System.out.println("-------");
+        System.out.println("0. Directorio Padre");
+        System.out.println("-1. Salir");
+
+
         do {
-            System.out.println("MENU");
-            System.out.println("-------");
-            System.out.println("0. Directorio Padre");
-            System.out.println("-1. Salir");
             System.out.println("Elige tu opcion");
             opcion = sc.nextInt();
-
             switch (opcion) {
                 case 0:
-                    ej.mostrarRaiz(linux);
+                    currentFile = File.listRoots()[0];
+                    break;
+                case 1:
+                    currentFile = currentFile.listFiles()[opcion-1];
+                    break;
+                case 2:
+
 
             }
 
