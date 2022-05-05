@@ -1,6 +1,4 @@
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Ejercicio1 {
     private File file = new File("c:'\'");
