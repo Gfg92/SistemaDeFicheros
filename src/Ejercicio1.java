@@ -1,7 +1,6 @@
-import java.io.File;
+import java.io.*;
 
 public class Ejercicio1 {
-
     public void mostrarRaiz(File file) {
         file = file.listRoots()[0];
         int i = 1;
