@@ -9,23 +9,24 @@ public class Main {
 
         System.out.println("Lista de ficheros y directorios de: " + file);
         System.out.println("---------------------------------------------");
-        File[]arrayFiles = file.listFiles();
+        File[] arrayFiles = file.listFiles();
         for (int i = 0; i < arrayFiles.length; i++) {
             System.out.println(i + ". " + arrayFiles[i]);
         }
-        System.out.println("Introduzca una opcion");
-        int opcion = sc.nextInt();
+        int opcion;
+        do {
+            System.out.println("Introduzca una opcion");
+            opcion = sc.nextInt();
+
+            File nuevoArray = arrayFiles[opcion];
+            File[] recorroArray = nuevoArray.listFiles();
 
 
-
-
-        if(opcion == ){
-
-        }
+            if (nuevoArray.isDirectory()) {
+                for (int i = 0; i < nuevoArray.length(); i++) {
+                    System.out.println(i + ". " + recorroArray[i]);
+                }
+            }
+        }while (opcion != -1);
     }
-
-
-
-
-
 }
