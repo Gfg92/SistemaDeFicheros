@@ -1,36 +1,31 @@
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Ejercicio1 ej = new Ejercicio1();
-        File currentFile = File.listRoots()[0];
+        File file = File.listRoots()[0];
+
+        System.out.println("Lista de ficheros y directorios de: " + file);
+        System.out.println("---------------------------------------------");
+        File[]arrayFiles = file.listFiles();
+        for (int i = 0; i < arrayFiles.length; i++) {
+            System.out.println(i + ". " + arrayFiles[i]);
+        }
+        System.out.println("Introduzca una opcion");
+        int opcion = sc.nextInt();
 
 
-        int opcion;
-        System.out.println("MENU");
-        System.out.println("-------");
-        System.out.println("0. Directorio Padre");
-        System.out.println("-1. Salir");
 
 
-        do {
-            System.out.println("Elige tu opcion");
-            opcion = sc.nextInt();
-            switch (opcion) {
-                case 0:
-                    currentFile = File.listRoots()[0];
-                    break;
-                case 1:
-                    currentFile = currentFile.listFiles()[opcion-1];
-                    break;
-                case 2:
+        if(opcion == ){
 
-
-            }
-
-        } while (opcion != -1);
-
+        }
     }
+
+
+
+
+
 }
