@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         File file = File.listRoots()[0];
-
         int indice = 1;
         System.out.println("Lista de ficheros y directorios de: " + file);
         System.out.println("-----------------------------------------");
@@ -20,9 +19,9 @@ public class Main {
             indice++;
         }
 
-        int opcion;
+
         System.out.println("Introduzca una opcion");
-        opcion = sc.nextInt();
+        int opcion = sc.nextInt();
 
         while (opcion != -1) {
             File newArray = arrayFiles[opcion - 1];
@@ -30,9 +29,10 @@ public class Main {
             int contador = 1;
             System.out.println("Lista de ficheros y directorios de: " + newArray);
             System.out.println("-----------------------------------------");
-            System.out.println("0. Directorio PADRE");
+            System.out.println("0. Directorio padre");
             for (int j = 0; j < arr.length; j++) {
                 if (arr[j].isDirectory()) {
+
                     System.out.println(contador + ". " + arr[j] + " <directory>");
                 }
                 if (arr[j].isFile()) {
@@ -42,6 +42,7 @@ public class Main {
             }
             System.out.println("Introduzca una opcion");
             opcion = sc.nextInt();
+
         }
     }
 }
