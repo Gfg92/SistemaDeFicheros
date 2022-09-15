@@ -6,45 +6,43 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         File file = File.listRoots()[0];
 
+        int indice = 1;
         System.out.println("Lista de ficheros y directorios de: " + file);
-        System.out.println("---------------------------------------------");
+        System.out.println("-----------------------------------------");
         File[] arrayFiles = file.listFiles();
         for (int i = 0; i < arrayFiles.length; i++) {
             if (arrayFiles[i].isDirectory()) {
-                System.out.println((i + 1) + ". " + arrayFiles[i] + " <directory>");
+                System.out.println(indice + ". " + arrayFiles[i] + " <directory>");
             }
             if (arrayFiles[i].isFile()) {
-                System.out.println((i + 1) + ". " + arrayFiles[i] + " <file> " + file.length() + " bytes.");
+                System.out.println(indice + ". " + arrayFiles[i] + " <file> " + file.length() + " bytes.");
             }
-
+            indice++;
         }
+
         int opcion;
         System.out.println("Introduzca una opcion");
         opcion = sc.nextInt();
+
         while (opcion != -1) {
-            if (opcion == 0) {
-                if (!file.equals(File.listRoots()[0])) {
-                    file = file.getParentFile();
-                } else {
-                    System.out.println("No hoy directorio padre");
+            File newArray = arrayFiles[opcion - 1];
+            File[] arr = newArray.listFiles();
+            int contador = 1;
+            System.out.println("Lista de ficheros y directorios de: " + newArray);
+            System.out.println("-----------------------------------------");
+            System.out.println("0. Directorio PADRE");
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j].isDirectory()) {
+                    System.out.println(contador + ". " + arr[j] + " <directory>");
                 }
-            } else if (opcion > 0) {
-                file = arrayFiles[opcion - 1];
-            }
-            arrayFiles = file.listFiles();
-            if (file.isDirectory()) {
-                System.out.println("0. Volver atras");
-                for (int i = 0; i < arrayFiles.length; i++) {
-                    if (arrayFiles[i].isDirectory()) {
-                        System.out.println((i + 1) + ". " + arrayFiles[i] + " <directory>");
-                    }
-                    if (arrayFiles[i].isFile()) {
-                        System.out.println((i + 1) + ". " + arrayFiles[i] + " <file> " + file.length() + " bytes.");
-                    }
+                if (arr[j].isFile()) {
+                    System.out.println(contador + ". " + arr[j] + " <file> " + file.length());
                 }
+                contador++;
             }
             System.out.println("Introduzca una opcion");
             opcion = sc.nextInt();
         }
     }
 }
+
