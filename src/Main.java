@@ -22,9 +22,8 @@ public class Main {
 
         System.out.println("Introduzca una opcion");
         int opcion = sc.nextInt();
-
+        File newArray = arrayFiles[opcion - 1];
         while (opcion != -1) {
-            File newArray = arrayFiles[opcion - 1];
             File[] arr = newArray.listFiles();
             int contador = 1;
             System.out.println("Lista de ficheros y directorios de: " + newArray);
